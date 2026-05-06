@@ -1,39 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
     <title>World Clock</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-    <h1>World Clock</h1>
-    <select>
+      <h1>World Clock</h1>
+      <select>
         <option value="">Select a city..</option>
-        <option value="">London</option>
+        <option value="">Berlin</option>
         <option value="">New York</option>
-        <option value="">Auckland</option>
+        <option value="">New Orleans</option>
       </select>
       <div class="city">
-        <h2>Athens 🇬🇷</h2>
-        <div class="date">August 15th 2022</div>
-        <div class="time">1:48:15 AM</div>
+        <div>
+          <h2>Athens 🇬🇷</h2>
+          <div class="date">August 15th 2022</div>
+        </div>
+        <div class="time">1:48:15 <small>AM</small></div>
       </div>
       <div class="city">
-        <h2>Hanoi 🇻🇳</h2>
-        <div class="date">August 15th 2022</div>
-        <div class="time">1:48:15 AM</div>
+        <div>
+          <h2>Hanoi 🇻🇳</h2>
+          <div class="date">August 15th 2022</div>
         </div>
-        <div class="city">
-        <h2>Santiago 🇨🇱</h2>
-        <div class="date">August 15th 2022</div>
-        <div class="time">1:48:15 AM</div>
+        <div class="time">1:48:15 <small>AM</small></div>
       </div>
+      <div class="city">
+        <div>
+          <h2>Santiago 🇨🇱</h2>
+          <div class="date">August 15th 2022</div>
+        </div>
+        <div class="time">1:48:15 <small>AM</small></div>
       </div>
+    </div>
     <footer>
-        This project was coded by <a href="https://github.com/eldimitrakog-alt" target="_blank">Elisavet Dimitrakogianni</a> is open-sourced on <a href="https://github.com/eldimitrakog-alt/world-clock" target="_blank">GitHub</a> and is hosted on <a href="https://my-worldclockproject.netlify.app/" target="_blank">Netlify</a>
-        </div>
-        <script src="src/index.js"></script>
-</body>
+      This project was coded by
+      <a href="https://github.com/eldimitrakog-alt" target="_blank"
+        >Elisavet Dimitrakogianni</a
+      >
+      is open-sourced on
+      <a href="https://github.com/eldimitrakog-alt/world-clock" target="_blank"
+        >GitHub</a
+      >
+      and is hosted on
+      <a href="https://my-worldclockproject.netlify.app/" target="_blank"
+        >Netlify</a
+      >
+    </footer>
+    <script src="src/index.js"></script>
+  </body>
 </html>
