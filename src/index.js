@@ -62,6 +62,9 @@ function updateCity(event) {
   }
   if (selectedCity === "") {
     selectedCity = null;
+    document.querySelector(".back-link").style.display = "none";
+  } else {
+    document.querySelector(".back-link").style.display = "block";
   }
   updateTime();
 }
