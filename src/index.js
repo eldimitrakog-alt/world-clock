@@ -1,62 +1,71 @@
+let selectedCity = null;
+
 function updateTime() {
-  // athens
-  let athensElement = document.querySelector("#athens");
-  if (athensElement) {
-    let athensDateElement = athensElement.querySelector(".date");
-    let athensTimeElement = athensElement.querySelector(".time");
-    let athensTime = moment().tz("Europe/Athens");
+  if (selectedCity) {
+    let cityName = selectedCity.replace("_", " ").split("/")[1];
+    let cityTime = moment().tz(selectedCity);
+    document.querySelector("#cities").innerHTML = `
+      <div class="city">
+        <div>
+          <h2>${cityName}</h2>
+          <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+        </div>
+        <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
+      </div>
+    `;
+  } else {
+    // Athens
+    let athensElement = document.querySelector("#athens");
+    if (athensElement) {
+      let athensTime = moment().tz("Europe/Athens");
+      athensElement.querySelector(".date").innerHTML =
+        athensTime.format("MMMM Do YYYY");
+      athensElement.querySelector(".time").innerHTML =
+        athensTime.format("h:mm:ss") +
+        " <small>" +
+        athensTime.format("A") +
+        "</small>";
+    }
 
-    athensDateElement.innerHTML = athensTime.format("MMMM	Do YYYY");
-    athensTimeElement.innerHTML = athensTime.format(
-      "h:mm:ss [<small>]A[</small>]",
-    );
-  }
-  // Hanoi
-  let hanoiElement = document.querySelector("#hanoi");
-  if (hanoiElement) {
-    let hanoiDateElement = hanoiElement.querySelector(".date");
-    let hanoiTimeElement = hanoiElement.querySelector(".time");
-    let hanoiTime = moment().tz("Asia/Bangkok");
+    // Hanoi
+    let hanoiElement = document.querySelector("#hanoi");
+    if (hanoiElement) {
+      let hanoiTime = moment().tz("Asia/Bangkok");
+      hanoiElement.querySelector(".date").innerHTML =
+        hanoiTime.format("MMMM Do YYYY");
+      hanoiElement.querySelector(".time").innerHTML =
+        hanoiTime.format("h:mm:ss") +
+        " <small>" +
+        hanoiTime.format("A") +
+        "</small>";
+    }
 
-    hanoiDateElement.innerHTML = hanoiTime.format("MMMM	Do YYYY");
-    hanoiTimeElement.innerHTML = hanoiTime.format(
-      "h:mm:ss [<small>]A[</small>]",
-    );
-  }
-  // Santiago
-  let santiagoElement = document.querySelector("#santiago");
-  if (santiagoElement) {
-    let santiagoDateElement = santiagoElement.querySelector(".date");
-    let santiagoTimeElement = santiagoElement.querySelector(".time");
-    let santiagoTime = moment().tz("America/Santiago");
-    santiagoDateElement.innerHTML = santiagoTime.format("MMMM Do YYYY");
-    santiagoTimeElement.innerHTML = santiagoTime.format(
-      "h:mm:ss [<small>]A[</small>]",
-    );
+    // Santiago
+    let santiagoElement = document.querySelector("#santiago");
+    if (santiagoElement) {
+      let santiagoTime = moment().tz("America/Santiago");
+      santiagoElement.querySelector(".date").innerHTML =
+        santiagoTime.format("MMMM Do YYYY");
+      santiagoElement.querySelector(".time").innerHTML =
+        santiagoTime.format("h:mm:ss") +
+        " <small>" +
+        santiagoTime.format("A") +
+        "</small>";
+    }
   }
 }
 
 function updateCity(event) {
-  let cityTimeZone = event.target.value;
-  if (cityTimeZone === "current") {
-    cityTimeZone = moment.tz.guess();
+  selectedCity = event.target.value;
+  if (selectedCity === "current") {
+    selectedCity = moment.tz.guess();
   }
-
-  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-  let cityTime = moment().tz(cityTimeZone);
-  let citiesElement = document.querySelector("#cities");
-  citiesElement.innerHTML = `
-  <div class="city">
-    <div>
-      <h2>${cityName}</h2>
-      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
-    </div>
-    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
-      "A",
-    )}</small></div>
-  </div>
-  `;
+  if (selectedCity === "") {
+    selectedCity = null;
+  }
+  updateTime();
 }
+
 updateTime();
 setInterval(updateTime, 1000);
 
